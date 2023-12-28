@@ -1,3 +1,15 @@
 # 应用服务 WEB 访问端口
-server.port=8080
+server:
+  port: 9527
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 305617
+    url: jdbc:mysql://localhost:3306/work_demo?characterEncoding=UTF-8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
 
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
