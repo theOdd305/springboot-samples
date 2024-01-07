@@ -48,6 +48,13 @@ public class GlobalExceptionHandler {
         return Result.fail(exceptionDataBuilder.build(), "invalid parameter");
     }
 
+    @ResponseBody
+    @ExceptionHandler(BusinessException.class)
+    public Result<BusinessException> businessException(BusinessException e) {
+        log.error(e.getLocalizedMessage(), e);
+        return Result.fail(e.getLocalizedMessage());
+    }
+
     /**
      * handle other exception.
      *
