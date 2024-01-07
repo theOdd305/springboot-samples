@@ -3,6 +3,7 @@ package com.wsc.springsamples.controller;
 import com.wsc.springsamples.entity.User;
 import com.wsc.springsamples.entity.response.Result;
 import com.wsc.springsamples.entity.validation.AddGroupValidation;
+import com.wsc.springsamples.entity.validation.EditGroupValidation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -26,15 +27,12 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public Result<String> add(@Validated(AddGroupValidation.class) @RequestBody User user, BindingResult bindResult) {
-        if (bindResult.hasErrors()) {
-            List<ObjectError> errors = bindResult.getAllErrors();
-            errors.forEach(p -> {
-                FieldError fieldError = (FieldError) p;
-                log.error("Invalid Parameter : object - {},field - {},errorMessage - {}", fieldError.getObjectName(), fieldError.getField(), fieldError.getDefaultMessage());
-            });
-            return Result.fail("Invalid Parameter");
-        }
+    public Result<String> add(@Validated(AddGroupValidation.class) @RequestBody User user) {
+        return Result.success();
+    }
+
+    @PostMapping("/edit")
+    public Result<String> edit(@Validated(EditGroupValidation.class) @RequestBody User user) {
         return Result.success();
     }
 

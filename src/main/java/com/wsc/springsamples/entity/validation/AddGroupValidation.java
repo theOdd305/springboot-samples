@@ -1,4 +1,6 @@
 package com.wsc.springsamples.entity.validation;
 
-public interface AddGroupValidation {
+import javax.validation.groups.Default;
+
+public interface AddGroupValidation extends Default {
 }

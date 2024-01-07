@@ -1,4 +1,6 @@
 package com.wsc.springsamples.entity.validation;
 
-public interface EditGroupValidation {
+import javax.validation.groups.Default;
+
+public interface EditGroupValidation extends Default {
 }
